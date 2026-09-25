@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>StudyLog</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="dashboard">
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand-wrap">
+          <div class="brand-mark">S</div>
+          <div>
+            <p class="eyebrow">学習管理</p>
+            <h1>StudyLog</h1>
+          </div>
+        </div>
+
+        <nav class="nav">
+          <a class="nav-item active" href="index.html">ダッシュボード</a>
+          <a class="nav-item" href="records.html">学習記録</a>
+          <a class="nav-item" href="plans.html">学習計画</a>
+          <a class="nav-item" href="calendar.html">カレンダー</a>
+        </nav>
+      </aside>
+
+      <main class="content">
+        <header class="topbar" id="dashboard">
+          <div>
+            <p class="eyebrow">Today</p>
+            <h2>学習状況</h2>
+          </div>
+          <button id="resetData" class="secondary-btn" type="button">データを初期化</button>
+        </header>
+
+        <section class="summary-grid">
+          <article class="card stat-card accent-primary">
+            <span class="label">今週の学習時間</span>
+            <strong id="weeklyMinutes">0分</strong>
+            <small id="weeklyGoal">目標達成率 0%</small>
+          </article>
+          <article class="card stat-card accent-success">
+            <span class="label">完了した学習</span>
+            <strong id="completedCount">0件</strong>
+            <small>学習計画を達成</small>
+          </article>
+          <article class="card stat-card accent-warn">
+            <span class="label">連続学習日数</span>
+            <strong id="streakDays">0日</strong>
+            <small>継続中</small>
+          </article>
+        </section>
+
+        <section class="card panel chart-panel">
+          <div class="panel-header chart-header">
+            <h3>予定と実績の比較</h3>
+            <div class="chart-legend">
+              <span><i class="legend-box planned"></i>予定</span>
+              <span><i class="legend-box actual"></i>実績</span>
+            </div>
+          </div>
+          <div id="planVsActualChart" class="comparison-chart" aria-label="予定と実績の比較グラフ"></div>
+        </section>
+
+        <section class="two-column">
+          <div class="card panel">
+            <div class="panel-header">
+              <h3>学習を記録</h3>
+            </div>
+            <form id="studyForm" class="stacked-form">
+              <label>
+                タイトル
+                <input type="text" id="studyTitle" name="studyTitle" placeholder="例: Reactを復習" required />
+              </label>
+              <div class="row two-col">
+                <label>
+                  教科
+                  <input type="text" id="studySubject" name="studySubject" placeholder="例: Web開発" required />
+                </label>
+                <label>
+                  分数
+                  <input type="number" id="studyMinutes" name="studyMinutes" min="1" max="600" value="45" required />
+                </label>
+              </div>
+              <label>
+                日付
+                <input type="date" id="studyDate" name="studyDate" required />
+              </label>
+              <button class="primary-btn" type="submit">記録を追加</button>
+            </form>
+          </div>
+
+          <div class="card panel">
+            <div class="panel-header">
+              <h3>学習計画を追加</h3>
+            </div>
+            <form id="planForm" class="stacked-form">
+              <label>
+                計画タイトル
+                <input type="text" id="planTitle" placeholder="例: 英文法の復習" required />
+              </label>
+              <div class="row two-col">
+                <label>
+                  教科
+                  <input type="text" id="planSubject" placeholder="例: 英語" required />
+                </label>
+                <label>
+                  目標分数
+                  <input type="number" id="planMinutes" min="15" max="600" value="60" required />
+                </label>
+              </div>
+              <label>
+                期日
+                <input type="date" id="planDate" required />
+              </label>
+              <button class="primary-btn" type="submit">計画を追加</button>
+            </form>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
