@@ -21,7 +21,7 @@ cd /Users/runamuraoka/learning-management-app
 python3 -m http.server 8000
 ```
 
-次に、ブラウザで http://localhost:8000 を開きます。
+次に、ブラウザで https://laughing-disco-vprr59vjjv4qf7gx-8000.app.github.dev/ を開きます。
 
 ## 技術スタック
 
